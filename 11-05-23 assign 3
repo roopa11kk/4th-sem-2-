@@ -1,0 +1,30 @@
+def countPrimes(N):
+    # Create a boolean array to track prime numbers
+    is_prime = [True] * (N + 1)
+    is_prime[0] = is_prime[1] = False
+
+    # Use Sieve of Eratosthenes to mark non-prime numbers
+    p = 2
+    while p * p <= N:
+        if is_prime[p]:
+            for i in range(p * p, N + 1, p):
+                is_prime[i] = False
+        p += 1
+
+    # Count the number of prime numbers
+    count = sum(is_prime)
+
+    return count
+
+
+# Read the number of test cases
+T = int(input())
+
+# Process each test case
+for _ in range(T):
+    # Read the value of N
+    N = int(input())
+
+    # Compute and print the count of prime numbers
+    prime_count = countPrimes(N)
+    print(prime_count)
