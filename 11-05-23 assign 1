@@ -1,0 +1,15 @@
+def runningSum(nums):
+    n = len(nums)
+    for i in range(1, n):
+        nums[i] += nums[i - 1]
+    return nums
+
+# Test the code with sample inputs
+# Number of test cases
+
+
+    # Number of elements in the array
+    nums = list(map(int, input().split()))  # Elements of the array
+    
+    output = runningSum(nums)
+    print(output)
