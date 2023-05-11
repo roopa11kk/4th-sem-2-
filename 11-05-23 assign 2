@@ -1,0 +1,36 @@
+# Function to compute the prefix sum of the array
+def computePrefixSum(arr):
+    prefix_sum = [0] * (len(arr) + 1)
+    
+    for i in range(len(arr)):
+        prefix_sum[i+1] = prefix_sum[i] + arr[i]
+    
+    return prefix_sum
+
+# Function to compute the sum of integers in the given range
+def computeRangeSum(prefix_sum, left, right):
+    return prefix_sum[right] - prefix_sum[left-1]
+
+# Read the number of test cases
+T = int(input())
+
+# Process each test case
+for _ in range(T):
+    # Read the array size and elements
+    N = int(input())
+    arr = list(map(int, input().split()))
+
+    # Compute the prefix sum of the array
+    prefix_sum = computePrefixSum(arr)
+
+    # Read the number of queries
+    Q = int(input())
+
+    # Process each query
+    for _ in range(Q):
+        # Read the left and right indices
+        left, right = map(int, input().split())
+
+        # Compute and print the sum of integers in the given range
+        range_sum = computeRangeSum(prefix_sum, left, right)
+        print(range_sum)
