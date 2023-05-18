@@ -1,0 +1,11 @@
+class solution:
+    def maxsubarray(self,nums:list[int])->int:
+         maxxsub=nums[0]
+         n=len(nums)
+         for i in range(0,n):
+             csum=0
+             for j in range(i,n):
+                 csum=csum+nums[j]
+                 if csum>maxsub:
+                    maxsub=csum
+         return maxsub
