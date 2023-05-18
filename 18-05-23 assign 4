@@ -1,0 +1,22 @@
+def count_max_subarray_sums_equal_to_k(arr, k):
+    n = len(arr)
+    count = 0
+
+    for i in range(n):
+        max_sum = float('-inf')
+        current_sum = 0
+
+        for j in range(i, n):
+            current_sum = max(arr[j], current_sum + arr[j])
+            max_sum = max(max_sum, current_sum)
+
+            if max_sum == k:
+                count += 1
+
+    return count
+
+# Example usage:
+array = [-2, -3, 4, -1, -2, 1, 5, -3]
+k = 7
+result = count_max_subarray_sums_equal_to_k(array, k)
+print("Count of subarrays with maximum sum equal to k:", result)
