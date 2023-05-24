@@ -1,0 +1,23 @@
+def total_combinations(X):
+    def backtrack(remaining, combination):
+        nonlocal count
+        if remaining == 0:
+            count += 1
+            result.append(combination[:])
+            return
+        if remaining < 0:
+            return
+
+        for num in [2, 3, 5]:
+            combination.append(num)
+            backtrack(remaining - num, combination)
+            combination.pop()
+
+    result = []
+    count = 0
+    backtrack(X, [])
+
+    print(count)
+
+X = int(input())
+total_combinations(X)
