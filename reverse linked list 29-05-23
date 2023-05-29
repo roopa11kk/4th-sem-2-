@@ -1,0 +1,13 @@
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        stack=[]
+        while head!=None:
+            stack.append(head.val)
+            head=head.next
+        result=ListNode(0)
+        top=result
+        while stack:
+            n=ListNode(stack.pop())
+            top.next=n
+            top=n
+        return result.next
